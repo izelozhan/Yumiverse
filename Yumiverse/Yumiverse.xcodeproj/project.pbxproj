@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		BE0B5AF12E539F1100541DC5 /* Yumiverse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yumiverse.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE0B5AF12E539F1100541DC5 /* Yumiverse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Yumiverse.app; path = "/Users/izel/Documents/GitHub/Yumiverse/Yumiverse/build/Debug-iphoneos/Yumiverse.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -33,16 +33,7 @@
 			isa = PBXGroup;
 			children = (
 				BE0B5AF32E539F1100541DC5 /* Yumiverse */,
-				BE0B5AF22E539F1100541DC5 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		BE0B5AF22E539F1100541DC5 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BE0B5AF12E539F1100541DC5 /* Yumiverse.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,7 +86,7 @@
 			mainGroup = BE0B5AE82E539F1100541DC5;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = BE0B5AF22E539F1100541DC5 /* Products */;
+			productRefGroup = BE0B5AE82E539F1100541DC5;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
