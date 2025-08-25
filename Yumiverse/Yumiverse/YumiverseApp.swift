@@ -11,7 +11,7 @@ import SwiftUI
 struct YumiverseApp: App {
     var body: some Scene {
         WindowGroup {
-            RecipesListView()
+            RecipeCategoryGridView()
         }
     }
 }
