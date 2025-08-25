@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct RecipesListView: View {
-//    @StateObject var recipeData = RecipeData()
+//  @StateObject var recipeData = RecipeData()
     @EnvironmentObject private var recipeData: RecipeData
+    @State private var isPresenting = false
+    @State private var newRecipe = Recipe()
+
     let category: MainInformation.Category
     
+//  COLORS
     private let listBackgroundColor = AppColor.background
     private let listTextColor = AppColor.foreground
     
@@ -22,17 +26,44 @@ struct RecipesListView: View {
             }
             .listRowBackground(listBackgroundColor)
             .foregroundColor(listTextColor)
-        }
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                Text(navigationTitle)
-                    .foregroundColor(AppColor.foreground)
-                    .font(.title)
+        }.navigationTitle(navigationTitle)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal){
+                    Text(navigationTitle)
+                        .font(.title2.weight(.semibold))
+                        .foregroundColor(AppColor.foreground)
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        isPresenting = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
             }
-        }
-
-        
+        //sheet is created to display modify-recipe-view
+            .sheet(isPresented: $isPresenting, content: {
+                NavigationView {
+                    ModifyRecipeView(recipe: $newRecipe)
+                        .toolbar(content: {
+                            ToolbarItem(placement: .cancellationAction) {
+                                Button("Dismiss") {
+                                    isPresenting = false
+                                }
+                            }
+                            ToolbarItem(placement: .confirmationAction){
+                                if newRecipe.isValid {
+                                    Button("Add"){
+                                        recipeData.add(recipe: newRecipe)
+                                        isPresenting = false
+                                    }
+                                }
+                            }
+                        })
+                        .navigationTitle("Add a New Recipe")
+                }
+            })
     }
 }
 
